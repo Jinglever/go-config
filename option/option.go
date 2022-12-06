@@ -9,7 +9,7 @@ import (
 type Option func()
 
 // WithEnvPrefix sets the environment variable prefix
-func SetEnvPrefix(prefix string) Option {
+func WithEnvPrefix(prefix string) Option {
 	return func() {
 		viper.SetEnvPrefix(prefix)
 		viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))

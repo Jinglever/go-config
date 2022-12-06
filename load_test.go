@@ -19,7 +19,7 @@ func TestLoadYamlConfig(t *testing.T) {
 	// set env using os
 	os.Setenv("JG_TALK", "false")
 
-	err := LoadYamlConfig("./_test_data/test.yml", &data, option.SetEnvPrefix("JG"))
+	err := LoadYamlConfig("./_test_data/test.yml", &data, option.WithEnvPrefix("JG"))
 	if err != nil {
 		t.Fatal(err)
 	}
