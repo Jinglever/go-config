@@ -1,4 +1,4 @@
-package config
+package jgconf
 
 import (
 	"encoding/json"
