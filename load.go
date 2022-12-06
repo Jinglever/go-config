@@ -1,8 +1,6 @@
 package config
 
 import (
-	"strings"
-
 	"github.com/Jinglever/go-config/option"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -14,8 +12,6 @@ func LoadYamlConfig(path string, cfg interface{}, opts ...option.Option) error {
 		o()
 	}
 	viper.SetConfigFile(path)
-	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-	viper.AutomaticEnv()
 	if err := viper.ReadInConfig(); err != nil {
 		logrus.Errorf("Failed to read config file: %s", err)
 		return err

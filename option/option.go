@@ -1,6 +1,8 @@
 package option
 
 import (
+	"strings"
+
 	"github.com/spf13/viper"
 )
 
@@ -10,5 +12,7 @@ type Option func()
 func SetEnvPrefix(prefix string) Option {
 	return func() {
 		viper.SetEnvPrefix(prefix)
+		viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+		viper.AutomaticEnv()
 	}
 }
